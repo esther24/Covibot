@@ -1,0 +1,254 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - no_butt
+  - yes_butt
+  - my_name
+  - thanks
+  - what_do_you_do
+  - call_someone
+  - nlu_fallback
+  - out_of_scope
+  - give_time
+  - corona_stats_check
+  - corona_states_stat
+  - topic_related
+  - news
+  - vac_info
+  - vac_age
+  - vac_workers
+  - vac_reg
+  - samples
+  - to_register
+  - faq_seek_medical
+  - faq_distancing_guidelines
+  - faq_self-isolate_guidelines
+  - faq_self-isolate
+  - faq_transport_guidelines
+  - faq_office_guidelines
+  - faq_guidelines
+  - faq_distancing
+  - faq_symptoms
+  - faq_vaccine
+  - faq_vulnerable
+  - faq_testing
+  - faq_whatisit
+  - document
+
+entities:
+- user
+- topic_news
+
+
+slots:
+  user:
+    type: text   
+    influence_conversation: false   
+  state:
+    type: text
+  requested_slot:
+    type: unfeaturized
+  topic_news:
+    type: text
+
+
+responses:
+
+  utter_greet:
+  - text: Hey! I am covibot. May I know your name?
+  utter_new_user:
+  - text: Oh no! Seems like you aren't in the user list. Do u want to add your name?
+    buttons:
+    - title: yes 
+      payload: /yes_butt
+    - title: no
+      payload: /no_butt
+  utter_ask_user:
+  - text: What is your name?
+  utter_welcomeback:
+  - text: hello!! {User} welcome back!! How can i help you today?
+  utter_hello_newuser:
+  - text: Hii {user} good to know your name! How many i help you?
+  utter_okay:
+  - text: okay no problem ! So how many i help you today?
+  utter_cheer_up:
+  - text: 'Here is something to cheer you up:  {link}'
+  - text: "Let's hear a joke: I got another letter from this lawyer today. It said “Final Notice”. Good that he will not bother me anymore."
+  - text: "Let's hear a joke: What is the worst combination of illnesses? -Alzheimer’s and diarrhea. You’re running, but can’t remember where."
+  utter_verysad:
+  - text: Okay if that didn't cheer you up, this will do i am sure! {link}
+  utter_did_that_help_again:
+  - buttons:
+    - payload: /affirm
+      title: yes it did!
+    - payload: /deny
+      title: no it did not!
+    text: Now did this help you feel better?
+  utter_happy:
+  - text: Great i am happy for you!! So how many i help you ?
+  utter_did_that_help:
+  - buttons:
+    - payload: /affirm
+      title: yes it did!
+    - payload: /deny
+      title: no it did not!
+    text: Did that help you?
+  utter_goodbye:
+  - text: Goodbye!! Hope to See you soon!\n\n REMEMBER TO DOUBLE MASK!\nVACCINE DOESN'T MEAN YOU CAN STOP USING MASK! 
+  utter_thanks:
+  - text: You are welcome! Do you have any other queries?
+    buttons:
+    - payload: /affirm
+      title: yes. 
+    - payload: /deny
+      title: no.
+  utter_whatelse:
+  - text: So what else do you want to ask?  
+  utter_my_purpose:
+  - text: " So, i am bot powered by rasa, specifically trained to answer covid 19 related  questions!\nI hope i am able to help you with what you need related to covid. "
+  utter_call_someone:
+  - text: "I know you are in an emergency, but i am not capable of sending SOS.\nInstead i can help with telling you their numbers;try these = Police(100),Hospital/ambulance(108)"
+  utter_please_rephrase:
+  - text: I'm sorry, I wasn't able to  understand what you just said. Could you please rephrase?
+  utter_out_of_scope:
+  - text: "I wish I could answer your question, but i can't.\nPlease ask some other question."
+  - text: "I am still under traning..so as of now i am not able answer that question.\nCould you ask another?"
+  - text: "Sorry I am not trained for answering that question.\nCan you please ask other question if possible related to COVID-19?"
+  utter_corona_stats_check:
+  - text: "Covid-19 Tracker [India] :\nPlease Enter the State name you wish to see the Covid-19 Statistics : "
+  utter_ask_topic_news:
+  - text: Okay! So could Give me a topic/keyword on which you would like to know the latest updates in.
+  utter_okayy:
+  - text: Okay so,
+  utter_confirm_if_service_is_correct:
+  - text: So this is relevant?
+    buttons:
+    - payload: /affirm
+      title: yes it is!
+    - payload: /deny
+      title: no it is!
+  utter_vaccine_dose_info:
+  - text: "So this is the following vaccination dose status all over india:\nfirst dose administered: 330259212\nsecond dose administered: 87591939\ntotaldosesadministered: 417851151\nupdatetimestamp: 23/07/2021 09:00:00"
+  utter_vaccine_dose_age_info:
+  - text: "So this is the following vaccination dose status all over india for different ages:\nover 45years 1st dose: 98917103,\nover 45years 2nd dose:31585098\nover 60 years 1stdose:72686361\nover 60years 2nd dose:32522772\nupdatetimestamp: 23/07/2021 09:00:00"
+  utter_vaccine_info_workers:
+  - text: "So this is the following vaccination status for the health and frontline workes in india:\nfrontline workers vaccinated 1stdose:17824546,\nfrontlineworkers vaccinated 2nddose:10549835,\nhealthcareworkers vaccinated 1stdose: 10277386,\nhealthcareworkers vaccinated 2nddose: 7611600\nupdatetimestamp: 23/07/2021 09:00:00"
+  utter_vaccine_reg:
+  - text: "So this is the following data for vaccine registration:\nregistration18-45years:205819990,\nregistrationabove45years:199180961\nupdatetimestamp: 23/07/2021 09:00:00"
+  utter_samples:
+  - text: "So the sample data is as follows:\nsample reported today: 1718439,\ndaily rtpcr samples collected icmrapplication:690933,\ntotal samples tested:450911712,\nupdatetimestamp: 23/07/2021 09:00:00"
+  utter_to_register:
+  - text: "To get a vaccine people of 18-44 first have to register themselves online on the CoWin platform . However, people above 45 years of age can choose to either register online or directly walk-in to the CVC but to avoid any inconvenience and have a hassle-free experience it is suggested to book an appointment online.\n-Log on to [Cowin](http://www.cowin.gov.in/) or [Cowin_app](https://play.google.com/store/apps/details?id=com.cowinapp.app&hl=en_IN&gl=US)\n-Enter your mobile number.\n-Get an OTP to create your account.\n-Enter OTP and Verify it.\n-Once the OTP is verified, you will be directed to the registration of the vaccination’ page.\n-You can choose one photo id proof which you want to provide in the next process.\n-Fill in the given information like your name, age, gender and upload one identity document.\n-Click on the “Register” button.\n-After completing the registration, the system will show the “Account Details”.\n-In the Account details there is a “Add More Button”, you can add three more people for vaccination.\n-There will be a button indicating ‘Schedule appointment’. Now click on it.\n-After clicking Schedule appointment, you can check your vaccination center by state, district and pin code to check available slots for vaccination.\n-Date and availability will also be displayed.\n-Click on the ‘book’ button.\n-After successfully completing the booking, you will receive a message. That confirmation details will have to be shown while you reach the vaccination center."
+  utter_faq_seek_medical:
+  - text: "1. If you experience shortness of breathe.\n 2. Have chest pain.\n 3. Become light-headed or confused.\n 4. Have some health related complications.\n 5. Oxygen level below 90%.\n If you experience any from the above its must for seeking a medical assistances.  "
+  utter_faq_distancing:
+  - text: Social distancing, also called “physical distancing,” means keeping space between yourself and other people outside of your home. To practice social or physical distancing Stay at least 6 feet (2 meters) from other people Do not gather in groups Stay out of crowded places and avoid mass gatherings
+  - text: Social distancing, or physical distancing, is a set of non-pharmaceutical interventions or measures taken to prevent the spread of a contagious disease by maintaining a physical distance between people and reducing the number of times people come into close contact with each other.
+  - text: The new coronavirus is a respiratory virus which spreads primarily through droplets generated when an infected person coughs or sneezes, or through droplets of saliva or discharge from the nose. To protect yourself, clean your hands frequently with an alcohol-based hand rub or wash them with soap and water.
+  utter_faq_symptoms:
+  - text: COVID-19 affects different people in different ways. Most infected people will develop mild to moderate symptoms.Common symptoms:fever, tiredness, dry coughSome people may experience:aches and pains, nasal congestion, runny nose, sore throat, diarrhoea. On average it takes 5–6 days from when someone is infected with the virus for symptoms to show, however it can take up to 14 days
+  - text: The virus can cause a range of symptoms, from ranging from mild illness to pneumonia. Symptoms of the disease are fever, cough, sore throat and headaches.
+  - text: Most people infected with the COVID-19 virus will experience mild to moderate respiratory illness and recover without requiring special treatment. Older people, and those with underlying medical problems like cardiovascular disease, diabetes, chronic respiratory disease, and cancer are more likely to develop serious illness.
+  - text: People with COVID-19 generally develop signs and symptoms, including mild respiratory symptoms and fever, on an average of 5-6 days after infection (mean incubation period 5-6 days, range 1-14 days). Most people infected with COVID-19 virus have mild disease and recover.
+  utter_faq_testing:
+  - text: Covid-19 testing can identify the SARS-CoV-2 virus (virus responsible for COVID-19) and includes methods that detect the presence of virus itself (RT-PCR and isothermal nucleic acid amplification) and those that detect antibodies produced in response to infection
+  - text: COVID-19 testing differs by location. If you have symptoms of COVID-19 and want to get tested, call your medical provider first. You can also visit your state or health department’s website to look for the latest local information on testing. While supplies of these tests are increasing, it may still be difficult to find a place to get tested.
+  utter_faq_vaccine:
+  - text: "Covishield vaccine, which was the first to be approved for use in India has a proven efficacy rate of 70%, which can be scaled up to 91% when both doses are administered 8-12 weeks apart. The vaccine also mounts a higher antibody response and prevents severe outcomes.\nWhereas Covaxin (codenamed as BBV152) is an inactivated virus-based COVID-19 vaccine developed by Bharat Biotech in collaboration with the Indian Council of Medical Research.In July 2021, Bharat Biotech reported the vaccine to be 64% (95% CI, 29–82%) effective against asymptomatic cases, 78% (65–86%) effective against symptomatic cases, 93% (57–100%) effective against severe COVID-19 infection, and 65% (33–83%) effective against the Delta variant. "
+  utter_faq_vulnerable:
+  - text: People of all ages can be infected by the new coronavirus (2019-nCoV). Older people, and people with pre-existing medical conditions (such as asthma, diabetes, heart disease) appear to be more vulnerable to becoming severely ill with the virus.
+  utter_faq_whatisit:
+  - text: Coronaviruses are a family of viruses that range from the common cold to MERS coronavirus, which is Middle East Respiratory Syndrome coronavirus and SARs, Severe acute respiratory syndrome coronavirus.
+  - text: The coronavirus is a respiratory virus which spreads primarily through droplets generated when an infected person coughs or sneezes, or through droplets of saliva or discharge from the nose. To protect yourself, clean your hands frequently with an alcohol-based hand rub or wash them with soap and water.
+  utter_faq_distancing_guidelines:
+  - text: Social distancing, also called “physical distancing,” means keeping space between yourself and other people outside of your home. To practice social or physical distancing Stay at least 6 feet (2 meters) from other people Do not gather in groups Stay out of crowded places and avoid mass gatherings
+  utter_faq_self-isolate:
+  - text: Self isolation is when you do not leave your house because you have or might have coronavirus.Self isolation is necessary to stop the virus from spreading to other people.If you have any symptoms of COVID-19,tested positive for COVID-19 or have been in contact with someone tested positive.When the vaccines were not available self isolation was the only cure. 
+  utter_faq_self-isolate_guidelines:
+  - text: Asymptomatic patients are recommended for home isolation.A care giver should be available to provide care 24*7 basis. Caregiver and hospital should have a communication link.People with serious ailments or oxygen level below 90 are advised to get admitted. Try maintaining a good environment and cleanliness for patients with pure oxygen supply.
+  - text: Patients as well as caregivers may consider using N 95 masks. Mask with triple layer medical mask are must.Frequent hand wash with soap and water for atleast 40 sec or clean with alcohol based sanitizer is must. Maintain proper social distancing from the other members of the family.
+  utter_faq_guidelines:
+  - text: "Government has implemented various guidelines or rules for stopping the wide spread of novel corona virus.\n 1. Restricted social gatherings at 25 persons. \n 2. Worst affected cities to implement weekend lockdowns and night curfews. \n 3. Private vehicles excluding buses will only be used for emergency or essential services. \n 4. Mask should be worn even when driving private vehicles. \n For more information refer :"
+  utter_faq_office_guidelines:
+  - text: Due to alarming rise in the covid cases the government has listed various restrictions.All private offices are allowed to function at 50% capacity. Employees have to follow the covid protocol.Adequate hand sanitizers to be kept at the entrance.Maintaining proper social distancing between employees. 
+  utter_faq_transport_guidelines:
+  - text: Due to alarming rise in covid cases all private vehicles will be used only for essential services or medical emergencies.Local trains are only for medical staffs or health care workers.Private buses can ply with 50 percent of seating capacity. All travelling must follow the covid protocols.People travelling intra-state require RTPCR test and self isolating for 14 days.
+  utter_document:
+  - text: "At the time of registration any one of the below-mentioned ID with photo may be produced:\n-Aadhaar Card\n-Driving License\n-Official identity cards issued to MPs/MLAs/MLCsPAN Card\n-Passbooks issued by Bank/Post Office\n-Passport\n-Pension Document\n-Service Identity"
+actions:
+- action_check_slot_values
+- validate_name_form
+- action_iambot
+- action_cheerup
+- action_mustcheerup
+- action_news_tracker
+- action_get_news
+- action_corona_state_stat
+- action_show_time
+- utter_greet
+- utter_new_user
+- utter_ask_user
+- utter_welcomeback
+- utter_hello_newuser
+- utter_okay
+- utter_cheer_up
+- utter_verysad
+- utter_did_that_help_again
+- utter_happy
+- utter_did_that_help
+- utter_goodbye
+- utter_thanks
+- utter_my_purpose
+- utter_whatelse
+- utter_call_someone
+- utter_please_rephrase
+- utter_out_of_scope
+- utter_confirm_if_service_is_correct
+- utter_okayy
+- utter_ask_topic_news
+- utter_corona_stats_check
+- utter_vaccine_dose_info
+- utter_vaccine_dose_age_info
+- utter_vaccine_info_workers
+- utter_vaccine_reg
+- utter_samples
+- utter_to_register
+- utter_faq_seek_medical
+- utter_faq_distancing
+- utter_faq_symptoms
+- utter_faq_testing
+- utter_faq_vaccine
+- utter_faq_vulnerable
+- utter_faq_whatisit
+- utter_faq_distancing_guidelines
+- utter_faq_self-isolate
+- utter_faq_self-isolate_guidelines
+- utter_faq_guidelines
+- utter_faq_office_guidelines
+- utter_faq_transport_guidelines
+- utter_document
+
+
+
+
+forms:
+  name_form:
+    required_slots:
+      user:
+      - type: from_text
+  get_news_form:
+    topic_news:
+    - type: from_text
+
+  
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

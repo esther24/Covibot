@@ -1,0 +1,78 @@
+version: "2.0"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: action_iambot
+
+- rule: If the user asks what to you do then do this 
+  steps: 
+    - intent: what_do_you_do
+    - action: utter_my_purpose
+
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_please_rephrase
+
+- rule: If user asks an out of scope question then tell him this
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+#name form
+- rule: Activate form
+  steps:
+    - intent: yes_butt
+    - action: name_form
+    - active_loop: name_form
+     
+- rule : Submit form
+  condition:
+  - active_loop : name_form
+  steps:
+    - action: name_form
+    - active_loop: null 
+    - slot_was_set:
+      - requested_slot: null  
+    - action: utter_hello_newuser
+
+- rule: corona tracker 
+  steps:
+  - intent: corona_states_stat
+  - action: action_corona_state_stat
+
+#news form
+- rule: Activate news form
+  steps:
+  - intent: topic_related
+  - action: get_news_form
+  - active_loop: get_news_form
+
+- rule: Submit news form
+  condition:
+  - active_loop: get_news_form
+  steps:
+  - action: get_news_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_okay
+  - action: action_get_news
+
+- rule: quick news updates
+  steps:
+  - intent: news
+  - action: action_news_tracker
+
+- rule: Name_stuff
+  steps:
+  - intent: my_name
+  - action: action_check_slot_values

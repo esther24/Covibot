@@ -1,0 +1,217 @@
+version: "2.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: action_cheerup
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: action_cheerup
+  - action: utter_did_that_help
+  - intent: deny
+  - action: action_mustcheerup
+  - action: utter_did_that_help_again
+  - intent: affirm 
+  - action: utter_happy
+
+- story:  thanks
+  steps:
+  - intent: thanks
+  - action: utter_thanks
+  - intent: affirm
+  - action: utter_whatelse
+  
+
+- story:  say goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: who_r_u
+  steps:
+  - intent: bot_challenge
+  - action: action_iambot
+
+- story: what does the bot do?
+  steps:
+  - intent: what_do_you_do
+  - action: utter_my_purpose
+
+- story: when the user says no to activation form
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: my_name
+    - action: action_check_slot_values
+    - intent: no_butt
+    - action: utter_okay
+    
+
+- story: Activate form only when name is not there with bots slot
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: my_name
+    - action: action_check_slot_values
+
+- story:  call_someone_story
+  steps:
+  - intent: call_someone
+  - action: utter_call_someone
+
+- story:  out_of_scope_story
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+- story: path about time
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: give_time
+  - action: action_show_time
+
+- story: corona tracker path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: corona_stats_check
+  - action: utter_corona_stats_check
+  - intent: corona_states_stat
+  - action: action_corona_state_stat
+
+- story: corona tracker 2 path
+  steps:
+  - intent: corona_stats_check
+  - action: utter_corona_stats_check
+  - intent: corona_states_stat
+  - action: action_corona_state_stat
+
+- story: news story
+  steps:
+  - intent: affirm
+  - action: utter_whatelse
+
+- story: vac 1
+  steps:
+  - intent: vac_info
+  - action: utter_vaccine_dose_info
+
+- story: vacc 2
+  steps:
+  - intent: vac_age
+  - action: utter_vaccine_dose_age_info
+
+- story: vacc3
+  steps:
+  - intent: vac_workers
+  - action: utter_vaccine_info_workers
+
+- story: vacc 4
+  steps:
+  - intent: vac_reg
+  - action: utter_vaccine_reg
+
+- story: news story
+  steps:
+  - intent: affirm
+  - action: utter_whatelse
+
+- story: a
+  steps:
+  - intent: faq_transport_guidelines
+  - action: utter_faq_transport_guidelines
+
+- story: b
+  steps:
+  - intent: to_register
+  - action: utter_to_register
+
+- story: c
+  steps:
+  - intent: faq_seek_medical
+  - action: utter_faq_seek_medical
+
+- story: d
+  steps:
+  - intent: faq_distancing_guidelines
+  - action: utter_faq_distancing_guidelines
+
+- story: e
+  steps:
+  - intent: faq_distancing
+  - action: utter_faq_distancing
+
+- story: f
+  steps:
+  - intent: faq_self-isolate_guidelines
+  - action: utter_faq_self-isolate_guidelines
+
+- story: g
+  steps:
+  - intent: faq_self-isolate
+  - action: utter_faq_self-isolate
+
+- story: h
+  steps:
+  - intent: faq_office_guidelines
+  - action: utter_faq_office_guidelines
+
+- story: i
+  steps:
+  - intent: faq_guidelines
+  - action: utter_faq_guidelines
+
+- story: j
+  steps:
+  - intent: faq_symptoms
+  - action: utter_faq_symptoms
+
+- story: k
+  steps:
+  - intent: faq_vulnerable
+  - action: utter_faq_vulnerable
+
+- story: l
+  steps:
+  - intent: faq_testing
+  - action: utter_faq_testing
+
+- story: m
+  steps:
+  - intent: faq_whatisit
+  - action: utter_faq_whatisit
+
+- story: o
+  steps:
+  - intent: document
+  - action: utter_document
+
+- story: x
+  steps:
+  - intent: samples
+  - action: utter_samples
+
+- story: xyz
+  steps:
+  - intent: faq_vaccine
+  - action: utter_faq_vaccine

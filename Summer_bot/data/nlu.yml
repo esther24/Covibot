@@ -1,0 +1,659 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - heyyyyyyyyyy
+    - heyy
+    - konichiwa
+    - namaste
+    - yo
+    - ssup
+    - hello bot
+    - hiii
+- intent: goodbye
+  examples: |
+    - gooodbyee
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you afterwards
+    - bye! Stay home
+    - byeee
+    - thanks
+    - see you later
+    - thankssss
+    - thank you
+    - thanks for help
+    - nice
+    - stop 
+    - nothing goodbye
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - sure
+    - ok
+    - okay
+    - yeah
+    - wow
+    - woah
+    - yes it did!
+- intent: deny
+  examples: |
+    - no
+    - n
+    - nah
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - nope
+    - no way at all
+    - no it did not!
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - feeling gleeful
+    - feeling awesome
+    - feeling like a queen
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saddd
+    - so sad
+    - i dont feel good
+    - i am gloomy
+    - awful
+    - terrible
+    - bad
+    - worst
+    - i feel helpless
+    - overwhelmed
+    - i am very sad
+    - i am sad
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - is this a bot?
+    - are u sure you are a bot?
+    - how can a bot talk so nicely?
+    - is this a person?
+    - who am i talking to?
+    - you are real?
+    - how can i trust you?
+    - you seem sus
+    - who are you?
+
+- intent: my_name
+  examples: |
+    - hii i am [John](user)
+    - [Andera](user)
+    - [Esther](user)
+    - It is [Jordan](user)
+    - My user is [Hrutuja](user)
+    - Hello i am [Tom](user)
+    - My user is [Chris](user)
+    - I am [Andy](user)
+    - Yo [Doja](user) here
+    - i am called [Abel](user)
+    - call me [hazel](user)
+    - you can call me [daniel](user)
+    - [Esther](user) here
+    - (user) here
+    - (user)
+    - my name is (user)
+
+- intent: no_butt
+  examples: |
+    - no i don't want to
+    - i am not interested 
+    - sorry i do not wish to
+    - maybe nextime but not now
+    - not now
+- intent: yes_butt
+  examples: |
+    - yes i  want to
+    - yes i am  interested 
+    - Yes i do wish to
+    - yes lets be friends!
+    - sure , i do not mind!
+    - ok
+    - sure why not! 
+    - yes totally
+- intent: thanks
+  examples: |
+    - thankyou
+    - tysm
+    - thanks that was helpful
+    - thankkk youuuu
+    - thankss that helped
+    - thanks
+- intent: what_do_you_do
+  examples: |
+    - what do you do?
+    - what is your purpose?
+    - what are you made for?
+    - how can you help me
+    - what can you help me with
+    - whats your job?
+- intent: call_someone
+  examples: |
+    - call the police
+    - call 911
+    - call for an ambulance
+    - call the hospital
+    - call my emergency contacts
+- intent: out_of_scope
+  examples: |
+    - someone call the police i think the bot died
+    - neither
+    - I want french cuisine
+    - i am hungry
+    - restaurant
+    - can i be shown a gluten free restaurant
+    - i don't care!!!!
+    - i do not care how are you
+    - again?
+    - oh wait i gave you my work email address can i change it?
+    - hang on let me find it
+    - stop it, i do not care!!!
+    - how come?
+    - I changed my mind
+    - what?
+    - did i break you
+    - that link doesn't work!
+    - you already have that
+    - this is a really frustrating experience
+    - no stop
+    - give me food
+    - i want food
+    - Can I ask you questions first?
+    - who is your favourite robot?
+    - can you help me to build a bot
+    - can i arrange a taxi?
+    - can i book a taxi?
+    - can i order a pizza?
+    - give quiche a chance
+    - i need a taxi
+    - i want a pepperoni pizza
+    - i want to order a pizza
+    - i'd like a pizza please
+    - what is the weather like?
+    - will it rain
+    - will it snow
+    - will there be traffic
+- intent: give_time
+  examples: |
+    - can you tell me what time it is
+    - tell me the time
+    - got the time
+    - what time is it
+- intent: corona_stats_check
+  examples: |
+    - Corona stats of the states
+    - i want to check corona statistics
+    - can you how me the corona statistics
+    - corona stats of please
+    - what is the covid status ?
+    - what is the covid stat?
+    - covid stats
+
+- intent: topic_related
+  examples: |
+    - Send me latest news updates
+    - I want to read some news
+    - i want news on a specific topic
+    - i want news on a particular topic
+    - show me some news in [politics](topic_news)
+    - give me current affairs
+    - some current affairs pls
+    - Find some interesting news
+    - News please
+    - Get me latest updates in [science](topic_news)
+    - latest updates in [sports](topic_news)
+    - whats the latest news in [business](topic_news)
+    - send news updates
+    - Fetch some news
+    - get news
+    - whats happening in this world
+    - tell me something about whats happening around
+    - interesting news pls
+    - latest updates in [blockchain](topic_news)
+    - get me latest updates in [astronomy](topic_news)
+    - any interesting updates in [physics](topic_news)
+    - I want to read something interesting
+    - I want to read news
+    - latest news about [machine learning](topic_news)
+    - latest updates about [Taylor Swift](topic_news)
+    - a bit more specific?
+
+- intent: news
+  examples: |
+    - News
+    - news
+    - what's trending?
+    - tell me latest news
+    - what's going on in the world?
+    - show me latest news
+    - latest news
+    - can you tell me latest news
+    - what is trending in the world
+    - I want to know what is going on in the world
+    - Tell me latest news
+    - what's hot
+    - how's the world
+    - What's the news today
+    - Trending news
+    - World trending
+    - Top news
+    - tell me about the world
+    - I want to know latest news
+    - something new
+    - something about the world
+    - News headlines
+    - I want to some news
+    - show me the latest news
+    - could you show me some news?
+
+
+- intent: corona_states_stat
+  examples: |
+    - [India](state)
+    - I live in [India](state:India)
+    - [Gujarat](state)
+    - I live in [Gujarat](state:Gujarat)
+    - [Andhra Pradesh](state)
+    - I live in [Andhra Pradesh](state:Andhra Pradesh)
+    - [Arunachal Pradesh](state)
+    - I live in [Arunachal Pradesh](state:Arunachal Pradesh)
+    - [Assam](state)
+    - I live in [Assam](state:Assam)
+    - [Bihar](state)
+    - I live in [Bihar](state:Bihar)
+    - [Goa](state)
+    - I live in [Goa](state:Goa)
+    - [Chhattisgarh](state)
+    - I live in [Chhattisgarh](state:Chhattisgarh)
+    - [Haryana](state)
+    - I live in [Haryana](state:Haryana)
+    - [Himachal Pradesh](state)
+    - I live in [Himachal Pradesh](state:Himachal Pradesh)
+    - [Jharkhand](state)
+    - I live in [Jharkhand](state:Jharkhand)
+    - [Karnataka](state)
+    - I live in [Karnataka](state:Karnataka)
+    - [Madhya Pradesh](state)
+    - I live in [Madhya Pradesh](state:Madhya Pradesh)
+    - [Kerala](state)
+    - I live in [Kerala](state:Kerala)
+    - [Maharashtra](state)
+    - I live in [Maharashtra](state:Maharashtra)
+    - [Manipur](state)
+    - I live in [Manipur](state:Manipur)
+    - [Meghalaya](state)
+    - I live in [Meghalaya](state:Meghalaya)
+    - [Mizoram](state)
+    - I live in [Mizoram](state:Mizoram)
+    - [Nagaland](state)
+    - I live in [Nagaland](state:Nagaland)
+    - [Odisha](state)
+    - I live in [Odisha](state:Odisha)
+    - [Punjab](state)
+    - I live in [Punjab](state:Punjab)
+    - [Rajasthan](state)
+    - I live in [Rajasthan](state:Rajasthan)
+    - [Sikkim](state)
+    - I live in [Sikkim](state:Sikkim)
+    - [Tamil Nadu](state)
+    - I live in [Tamil Nadu](state:Tamil Nadu)
+    - [Telangana](state)
+    - I live in [Telangana](state:Telangana)
+    - [Tripura](state)
+    - I live in [Tripura](state:Tripura)
+    - [Uttar Pradesh](state)
+    - I live in [Uttar Pradesh](state:Uttar Pradesh)
+    - [Uttarakhand](state)
+    - I live in [Uttarakhand](state:Uttarakhand)
+    - [West Bengal](state)
+    - I live in [West Bengal](state:West Bengal)
+    - [Delhi](state)
+    - I live in [Delhi](state:Delhi)
+
+- intent: vac_info
+  examples: |
+    - Corona vaccine information
+    - i want to check vaccination drive statistics
+    - can you how me the corona vaccination drive statistics
+    - corona stats of vaccination please
+    - what is the covid drive status ?
+    - what is the covid drive stat?
+    - covid stats on vaccine
+    - give me the vaccine status
+    - show me vaccine data
+
+- intent: vac_age
+  examples: |
+    - Corona vaccine age and dose information
+    - show me the data for doses given to different age groups
+    - vaccine age related data
+
+- intent: vac_workers
+  examples: |
+    - Corona vaccine given to frontline workers information
+    - show me the data for doses given to the frontline workers
+    - vaccine related data for frontline workers
+
+- intent: vac_reg
+  examples: |
+    - Corona vacc registration information
+    - i want to check vaccination registration drive statistics
+
+- intent: samples
+  examples: |          
+    - Corona samples information
+    - i want to check sample statistics
+
+- intent: to_register
+  examples: |
+    - Registration for vaccine
+    - I want to register at cowin 
+    - Register at cowin
+    - Vaccination register
+    - Cowin
+    - Vaccine Availability
+
+- intent: faq_seek_medical
+  examples: |
+    - when to seek medical assistance
+    - is it necessary to seek medical help
+    - medical assistance
+    - help
+    - When to know its serious 
+    - Immediate help
+
+
+- intent: faq_distancing_guidelines
+  examples: |
+    - what are the guidelines that government has created for ensuring social distancing?
+    - what are the guidelines for social distancing?
+    - guidelines for distancing in pulbic
+    - social distance
+    - distancing
+    - rules for social distancing
+    - what is social distancing
+    - what does social distancing mean?
+    - how do i socially distance?
+    - how does social distancing work?
+
+
+- intent: faq_transport_guidelines
+  examples: |
+    - what are the guidelines that government has created for traveling?
+    - what are the guidelines for traveling to native places?
+    - guidelines for traveling.
+    - travel
+    - traveling
+    - rules for traveling
+    - for what reasons can i still travel?
+
+
+- intent: faq_office_guidelines
+  examples: |
+    - what are the guidelines that government has created for office goers?
+    - what are the guidelines for tavelling to office
+    - guidelines for office
+    - offices
+    - government workers
+    - jobs
+    - rules for government workers
+    - employees
+    - employee
+
+
+- intent: faq_guidelines
+  examples: |
+    - what are the some of the guidelines that government has created?
+    - what are guidelines for covid 19?
+    - guidelines covid 19?
+    - guidelines for maharashtra
+    - guidelines for mumbai
+    - rules covid 19
+
+- intent: faq_self-isolate
+  examples: |
+    - What is self isolation
+    - Self isolation
+    - Why to self isolate
+    - when self isolation is necessary
+    - do i have to self-isolate
+    - when to self isolate
+    - Is self isolation necessary
+
+
+- intent: faq_self-isolate_guidelines
+  examples: |
+    - what are the guidelines that government has created for self isolation
+    - what are the guidelines for self isolation
+    - guidelines for self isolation
+    - are there guidelines for how to self-isolate?
+    - rules for self isolation
+    - how do i self isolate
+    - do i have to isolate?
+
+
+- intent: faq_distancing
+  examples: |
+    - what is distancing
+    - why should we follow social distancing
+    - distancing
+ 
+- intent: faq_symptoms
+  examples: |
+    - can there be complications from covid-19 symptoms?
+    - can you be infected and not show any symptoms?
+    - can you tell me what the symptoms are?
+    - could i be carrying coronavirus if i don't have symptoms?
+    - does everyone have symptoms?
+    - how badly should i be coughing
+    - how can i identify the symptoms of corona?
+    - how can i tell if i have corona virus?
+    - how do i know i have covid-19?
+    - how do i know i might be a carrier?
+    - how do i know i might have it?
+    - how do i know if i have a high temperature?
+    - how do i know if i have it?
+    - how do i know if i need hospital treatment?
+    - how do i know if i'm a carrier of covid-19?
+    - how do i know if i've caught coronavirus?
+    - how do i know if i've caught it?
+    - how high does my fever have to be for me to go to hospital?
+    - how high is a fever?
+    - how is your body affected by corona?
+    - how long do i have to be sick for before i can go to a clinic?
+    - how long should i have a fever for?
+    - how severe do my symptoms have to be before i go to hospital?
+    - how would my body feel if i caught the virus?
+    - i have a fever, do i have corona?
+    - i'm coughing, what should i do?
+    - is a symptom?
+    - is coughing a symptom of the disease?
+    - is joint pain a symptom?
+
+
+- intent: faq_vaccine
+  examples: |     
+    - what are the vaccines available in india?
+    - what are vaccines in india?
+    - covisheild and covaxine 
+    - what are the different vaccines
+
+
+
+
+- intent: faq_vulnerable
+  examples: |
+    - what age group is most vulnerable?
+    - what age range is most at risk?
+    - what are the high risk groups?
+    - what groups are vulnerable?
+    - what if i'm high risk?
+    - what if i'm years old?
+    - what if someone is diabetic?
+    - what people are most likely to experience severe symptoms?
+    - who is most at risk of severe symptoms?
+    - who is most likely to need hospital treatment?
+
+
+- intent: faq_testing
+  examples: |
+    - are tests available?
+    - are there tests to detect corona?
+    - can i have a test even if i don't have symptoms?
+    - can i have a test if i think i have coronavirus?
+    - can i have a test?
+    - how are they testing people for covid19?
+    - how can i get tested?
+    - how do they test for covid-19?
+    - how do they test someone for covid-19?
+    - how does testing for corona work?
+    - how does testing work?
+    - i think i have coronavirus, should i get a test?
+    - i think i've got it, should i get a test?
+    - is there any testing going on?
+    - when should i get a test?
+    - when will testing be available?
+    - where are test available?
+    - who are they testing for corona virus right now?
+    - who can get tested?
+
+
+- intent: faq_whatisit
+  examples: |
+    - is covid-19 a virus?
+    - what are corona viruses?
+    - what does covid mean?
+    - what does covid stand for?
+    - what does covid19 mean?
+    - what does covid-19 mean
+    - what is corona?
+    - what is covid-19
+    - what is pandemic
+    - what is the corona virus?
+
+- intent: document
+  examples: |
+    - is any document required for registration
+    - what are the documents needed?
+    - what documents?
+    - what documents are required for registration.
+ 
+
+- synonym: hospital
+  examples: |
+    - health centre
+    - infirmary
+    - medical centre
+    - medical institution
+    - clinic
+    - hospitals
+    - health centres
+    - infirmaries
+    - medical centres
+    - medical institutions
+    - clinics
+    - emergency room
+    - emergency
+
+
+- synonym: corona
+  examples: |
+    - coronavirus
+    - covid
+    - covid-19
+    - covid19
+    - covid 19
+    - virus
+    - viral
+    - pandemic
+    - epidemic
+    - outbreak
+    - illness
+    - disease
+    - viruses
+    - infection
+
+    
+- synonym: illness
+  examples: |
+    - asthma
+    - diabetes
+    - asthmatic
+    - diabetic
+    - hypertension
+    - heart
+    - heart disease
+    - cardiovascular
+    - cardiovascular disease
+    - respiratory disease
+    - chronic
+    - cancer
+    - lung
+    - lung disease
+    - high blood pressure
+    - blood pressure
+
+
+
+
